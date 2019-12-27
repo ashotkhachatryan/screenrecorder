@@ -8,6 +8,9 @@ addons:
     packages:
       - libx264-dev
       - libpostproc-dev
+      - libxcb-shape0-dev
+      - libxcb-xfixes0-dev
+      - libasound2-dev
 env:
     - HOST=linux
     - HOST=windows
