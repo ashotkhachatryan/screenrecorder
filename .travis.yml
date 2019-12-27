@@ -22,6 +22,9 @@ install:
 script:
   - echo "RUNNING PWD"
   - pwd
+  - echo $TRAVIS_BUILD_DIR
+  - wget https://github.com/ashotkhachatryan/FFmpeg/releases/download/v4.3/linux.zip -P $TRAVIS_BUILD_DIR
+  - ls $TRAVIS_BUILD_DIR
   - mkdir build; cd build;
   - if [ "$HOST" == "linux" ]; then cmake .. -DLINUX=1; fi
   - if [ "$HOST" == "windows" ]; then cmake .. -DWINDOWS=1; fi
