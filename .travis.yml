@@ -7,6 +7,7 @@ addons:
   apt:
     packages:
       - libx264-dev
+      - libpostproc-dev
 env:
     - HOST=linux
     - HOST=windows
