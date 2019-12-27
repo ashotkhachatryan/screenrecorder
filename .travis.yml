@@ -3,6 +3,10 @@ sudo: false
 os:
   - linux
   - osx
+addons:
+  apt:
+    packages:
+      - libx264-dev
 env:
     - HOST=linux
     - HOST=windows
