@@ -1,0 +1,46 @@
+language: c
+sudo: false
+os:
+  - linux
+  - osx
+env:
+    - HOST=linux
+    - HOST=windows
+    - HOST=osx
+matrix:
+  exclude:
+    - os: osx
+      env: HOST=linux
+    - os: osx
+      env: HOST=windows
+    - os: linux
+      env: HOST=osx
+before_install:
+  - if [ "$HOST" == "osx" ]; then brew update; fi
+install:
+  - if [ "$HOST" == "osx" ]; then brew install nasm; fi
+script:
+  - echo "RUNNING PWD"
+  - pwd
+  - mkdir build; cd build;
+  - if [ "$HOST" == "windows" ]; then cmake .. -DWINDOWS=1; fi
+  - if [ "$HOST" == "windows" ]; then cmake .. -DMACOS=1; fi
+  - if [ "$HOST" == "windows" ]; then cmake .. -DLINUX=1; fi
+  - make
+before_deploy:
+  - echo "PRINTING USEFULL INFORMATION"
+  - pwd
+  - ls
+  - ls ../
+  - cd ../ && zip -r $HOST.zip $HOST
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: "OBz/rcwJHTpzp/b+6RF0Xy7U9c2xkUX0+fhS+Iy8d5w8s3q42Dg9EaKin7CHrp9gIopmD1VW93Q2/r0ITi0WlvOJFJYiwDwSwTEbojh1eymlpGKtyefglOStJeWvfFUFgtBkZatd8mHWS83Ynf6czVZYDAIm/4yJ47edxNrbwCLCLecBCO5FHCbwqqODN/ky1cUcXxnv9BVNqtUxiy7SPkdMvdOsqy3VpyI5M7ytXLIXaFXdwOfTiKT6FgJRqaeTMCZ7wk27pYFGsOHN0hf7rdME3GTyqCgQxZ+ULIZmQygkEKhH6judg0R76mbPZoYnmlrGrMGjhrsoJHpaLoXRkIDLDAFzgZj9gircbOxLWY0bYQTaN5bu5GYrmhcA13zEb7hXNNUUNTjgz4ne9wSdzQ+rxz+S32zanbaf9uSH/qbU0qP308LZb0lCSeu5oR+hV6QnXLuTJcmovlzIrSoYOYrKQhr5V0quP/Y7soCHYIvJk/EY8fj8vv8NeXZUhAPwEusE16F0MsvxF/h84h+I6PVTW35Iemwv3XT4LHH+wSmkMPpvlVo3FFj8zL9iVIkCbYW9bBnA1ILP0MCwOznU/Wu7EXBezO6lOAber6f2f7IDWgwr8IUp7tNM7tEKFIHqjdbqhnJt8rkiJRuKAPD+JcwWZJTrzyZRHhDRvFCLn9s="
+  file:
+    - $HOST.zip
+  on:
+    repo: ashotkhachatryan/FFmpeg
+    tags: true
+    all_branches: true
