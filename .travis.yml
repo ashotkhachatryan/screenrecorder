@@ -11,6 +11,9 @@ addons:
       - libxcb-shape0-dev
       - libxcb-xfixes0-dev
       - libasound2-dev
+      - libsndio-dev
+      - libsdl2-dev
+      - libxv-dev
 env:
     - HOST=linux
     - HOST=windows
