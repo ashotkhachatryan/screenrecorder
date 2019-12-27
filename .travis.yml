@@ -23,9 +23,9 @@ script:
   - echo "RUNNING PWD"
   - pwd
   - mkdir build; cd build;
+  - if [ "$HOST" == "linux" ]; then cmake .. -DLINUX=1; fi
   - if [ "$HOST" == "windows" ]; then cmake .. -DWINDOWS=1; fi
-  - if [ "$HOST" == "windows" ]; then cmake .. -DMACOS=1; fi
-  - if [ "$HOST" == "windows" ]; then cmake .. -DLINUX=1; fi
+  - if [ "$HOST" == "osx" ]; then cmake .. -DMACOS=1; fi
   - make
 before_deploy:
   - echo "PRINTING USEFULL INFORMATION"
