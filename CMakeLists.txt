@@ -87,7 +87,7 @@ elseif(MACOS)
         ScreenRecorder.cpp
     )
 
-    target_link_libraries(main -lfftools -lavutil -pthread -lm -framework VideoToolbox -framework CoreFoundation -framework CoreMedia -framework CoreVideo -framework CoreServices -lavcodec -liconv -llzma -lz -framework AudioToolbox -lavfilter -framework OpenGL -framework CoreImage -framework AppKit -lavformat -lbz2 -Wl,-framework,Security -lavdevice -framework Foundation -framework AVFoundation -framework CoreGraphics -L/usr/local/lib -lSDL2 -lswresample -lswscale)
+    target_link_libraries(main -lfftools -lavutil -pthread -lm "-framework VideoToolbox" "-framework CoreFoundation" "-framework CoreMedia" "-framework CoreVideo" "-framework CoreServices" -lavcodec -liconv -llzma -lz "-framework AudioToolbox" -lavfilter "-framework OpenGL" "-framework CoreImage" "-framework AppKit" -lavformat -lbz2 -Wl,-framework,Security -lavdevice "-framework Foundation" "-framework AVFoundation" "-framework CoreGraphics" -L/usr/local/lib -lSDL2 -lswresample -lswscale)
 elseif(LINUX)
 
 endif()
