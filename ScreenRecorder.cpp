@@ -1,6 +1,6 @@
 #include "ScreenRecorder.h"
 
-#define class m_class
+//#define class m_class
 extern "C"
 {
 #ifdef _WIN32
@@ -9,7 +9,7 @@ extern "C"
 #endif
     #include <libfftools/ffmpeg.h>
 }
-#undef class
+//#undef class
 
 ScreenRecorder::ScreenRecorder()
     : m_framerate(30)
