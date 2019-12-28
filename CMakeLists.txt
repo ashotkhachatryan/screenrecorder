@@ -57,7 +57,7 @@ elseif(LINUX)
         ScreenRecorder.cpp
     )
 
-    target_link_libraries(main -lfftools -lavdevice -lavformat -lm -lbz2 -lz -lavfilter -lavcodec -lx264 -lswresample -lswscale -lavutil -lpostproc -lpthread -lxcb -lxcb-shm -lxcb -lxcb-shape -lxcb -lxcb-xfixes -lxcb-render -lxcb-shape -lxcb -lasound -lSDL2 -lsndio -lXv -lX11 -lXext)
+    target_link_libraries(main -lfftools -lavdevice -lavformat -lm -lbz2 -lz -lavfilter -lavcodec -lx264 -lswresample -lswscale -lavutil -lpostproc -lpthread -lxcb -lxcb-shm -lxcb -lxcb-shape -lxcb -lxcb-xfixes -lxcb-render -lxcb-shape -lxcb -lasound -lSDL2 -lsndio -lXv -lX11 -lXext -llzma)
 
 elseif(MACOS)
     # Build for MacOS
