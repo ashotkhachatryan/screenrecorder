@@ -14,6 +14,7 @@ addons:
       - libsndio-dev
       - libsdl2-dev
       - libxv-dev
+      - liblzma-dev
 env:
     - HOST=linux
     - HOST=windows
