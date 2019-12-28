@@ -30,7 +30,7 @@ matrix:
 before_install:
   - if [ "$HOST" == "osx" ]; then brew update; fi
 install:
-  - if [ "$HOST" == "osx" ]; then brew install nasm; fi
+  - if [ "$HOST" == "osx" ]; then brew install sdl2; fi
 script:
   - echo "RUNNING PWD"
   - pwd
