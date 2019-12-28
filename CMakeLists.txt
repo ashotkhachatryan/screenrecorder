@@ -64,9 +64,6 @@ elseif(MACOS)
     cmake_minimum_required(VERSION 3.1.0)
 
     set(CMAKE_SYSTEM_NAME Darwin)
-    set(CMAKE_C_COMPILER   /usr/bin/gcc)
-    set(CMAKE_CXX_COMPILER /home/ashot/crown/depends/x86_64-apple-darwin14/native/bin/clang++)
-    set(CMAKE_CXX_FLAGS  "-target x86_64-apple-darwin14 -mmacosx-version-min=10.7 --sysroot /home/ashot/crown/depends/SDKs/MacOSX10.8.sdk -stdlib=libc++")
 
     set(CMAKE_CXX_STANDARD 14)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
