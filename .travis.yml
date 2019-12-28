@@ -34,11 +34,11 @@ install:
 script:
   - echo "RUNNING PWD"
   - pwd
+  - mkdir build; cd build;
   - echo $TRAVIS_BUILD_DIR
-  - wget -O ffmpeg.zip https://github.com/ashotkhachatryan/FFmpeg/releases/download/v4.3/linux.zip
+  - wget -O ffmpeg.zip https://github.com/ashotkhachatryan/FFmpeg/releases/download/v4.3/$HOST.zip
   - mkdir ffmpeg; unzip -d ffmpeg/ ffmpeg.zip 
   - ls $TRAVIS_BUILD_DIR/ffmpeg/$HOST
-  - mkdir build; cd build;
   - if [ "$HOST" == "linux" ]; then cmake -DLINUX=1 -DLIBDIR=$TRAVIS_BUILD_DIR/ffmpeg/$HOST/lib -DINCDIR=$TRAVIS_BUILD_DIR/ffmpeg/$HOST/include ..; fi
   - if [ "$HOST" == "windows" ]; then cmake .. -DWINDOWS=1; fi
   - if [ "$HOST" == "osx" ]; then cmake .. -DMACOS=1; fi

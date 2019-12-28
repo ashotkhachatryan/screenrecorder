@@ -10,8 +10,8 @@ if (WINDOWS)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
     set(CMAKE_CXX_EXTENSIONS OFF)
 
-    link_directories("/home/ashot/ffmpeg_build_win/lib")
-    include_directories("/home/ashot/ffmpeg_build_win/include")
+    link_directories(${LIBDIR})
+    include_directories(${INCDIR})
 
     project(screen_recorder)
 
@@ -72,8 +72,8 @@ elseif(MACOS)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
     set(CMAKE_CXX_EXTENSIONS OFF)
 
-    link_directories("/home/ashot/ffmpeg_build_macos/lib")
-    include_directories("/home/ashot/ffmpeg_build_macos/include")
+    link_directories(${LIBDIR})
+    include_directories(${INCDIR})
 
     project(screen_recorder)
 
